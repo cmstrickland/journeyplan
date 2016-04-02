@@ -12,3 +12,8 @@ typical steps to set this up
   - e.g. include a line like this in`local   all    rentify                  trust`    _above_ the default entry  `local all all peer`
 
 but this may vary according to your postgresql setup
+
+once you have this
+
+`rake db:create`
+`rake db:migrate`

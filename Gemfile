@@ -14,8 +14,6 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
-end
-
-group :test do
   gem 'rspec-rails'
+  gem 'fabricator'
 end

@@ -17,3 +17,7 @@ group :development, :test do
   gem 'fabrication-rails'
   gem 'faker'
 end
+
+group :development do
+  gem 'ripper-tags'
+end

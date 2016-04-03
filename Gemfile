@@ -14,5 +14,6 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
-  gem 'fabricator'
+  gem 'fabrication-rails'
+  gem 'faker'
 end

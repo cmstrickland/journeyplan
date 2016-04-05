@@ -3,4 +3,5 @@ class Visit < ActiveRecord::Base
   validates :journey, presence: true
   belongs_to :location
   belongs_to :journey
+
 end

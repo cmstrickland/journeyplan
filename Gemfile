@@ -16,7 +16,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'fabrication-rails'
   gem 'faker'
+  gem 'capybara'
 end
+
 
 group :development do
   gem 'ripper-tags'

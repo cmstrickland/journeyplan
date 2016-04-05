@@ -16,9 +16,7 @@ RSpec.describe Journey, type: :model do
 
   it "must have at least one visit" do
     journey.save
-    expect(journey.visits.count).to be > 0
-    journey.visits = []
-    expect(journey).to_not be_valid
+    expect(journey.visits.count).to be 1
   end
 
 end

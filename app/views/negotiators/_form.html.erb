@@ -1,0 +1,19 @@
+<%= form_for(@negotiator) do |f| %>
+
+<% if @negotiator.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@negotiator.errors.count, "error") %> prohibited this negotiator from being saved:</h2>
+
+  <ul>
+    <% @negotiator.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= f.text_field :username %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

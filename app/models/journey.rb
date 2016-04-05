@@ -7,6 +7,8 @@ class Journey < ActiveRecord::Base
 
   before_validation :set_start_point
 
+  attr_accessor :locations
+
   private
 
   def set_start_point

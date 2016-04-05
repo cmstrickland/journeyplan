@@ -1,17 +1,31 @@
 <%= form_for(@journey) do |f| %>
-  <% if @journey.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@journey.errors.count, "error") %> prohibited this journey from being saved:</h2>
+<% if @journey.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@journey.errors.count, "error") %> prohibited this journey from being saved:</h2>
 
-      <ul>
-      <% @journey.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <ul>
+    <% @journey.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<div id="map-data">
+<input type='number' id="initial_latitude" value="51.519992"></input>
+<input type='number' id="initial_longitude" value="-0.098410"></input>
+<input type='number' id="initial_zoom" value="18"></input>
+<%=f.text_field :locations %>
+</div>
+
+<div class="map-view" id="map">
+ <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"
+         async defer></script>
+
+</div>
+
+
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

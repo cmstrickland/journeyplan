@@ -27,13 +27,16 @@ RSpec.describe JourneysController, type: :controller do
   let(:valid_attributes) {
     {
       negotiator_id: negotiator.id ,
-      visits: [],
+      locations: %Q|[{"lat":51.52009887693997,"lng":-0.10031461715698242},
+                   {"lat":51.5201022148957,"lng":-0.09703695774078369},
+                   {"lat":51.520490584443266,"lng":-0.08752584457397461},
+                   {"lat":51.52270402148376,"lng":-0.07179737091064453}]"|,
       starts: Faker::Time.forward
     }
   }
 
   let(:invalid_attributes) {
-    {negotiator_id: -234, visits: ["cardboard"], starts: 55 }
+    {negotiator_id: -234, locations: ["cardboard"], starts: 55 }
   }
 
   # This should return the minimal set of values that should be in the session

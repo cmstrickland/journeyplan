@@ -27,6 +27,7 @@ class JourneysController < ApplicationController
   # POST /journeys
   def create
     negotiator = Negotiator.find_by_id(journey_params[:negotiator_id])
+    locations = journey_params[:locations]
     @journey = Journey.new(negotiator: negotiator, starts: journey_params[:starts])
     if @journey.save
       redirect_to @journey, notice: 'Journey was successfully created.'
@@ -58,6 +59,6 @@ class JourneysController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def journey_params
-      params.require(:journey).permit(:visit_ids,:starts,:negotiator_id)
+      params.require(:journey).permit(:locations,:starts,:negotiator_id)
     end
 end

@@ -12,8 +12,11 @@
 </div>
 <% end %>
 
+<label id:"username">
+  Username:
 <%= f.text_field :username %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit id: 'create_negotiator'  %>
   </div>
+</label>
 <% end %>

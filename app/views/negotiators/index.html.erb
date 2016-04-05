@@ -11,11 +11,12 @@
 
   <tbody>
     <% @negotiators.each do |negotiator| %>
-      <tr>
-        <td><%= link_to 'Show', negotiator %></td>
-        <td><%= link_to 'Edit', edit_negotiator_path(negotiator) %></td>
-        <td><%= link_to 'Destroy', negotiator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <tr>
+      <td><%= negotiator.username %></td>
+      <td><%= link_to 'Show', negotiator %></td>
+      <td><%= link_to 'Edit', edit_negotiator_path(negotiator) %></td>
+      <td><%= link_to 'Destroy', negotiator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>

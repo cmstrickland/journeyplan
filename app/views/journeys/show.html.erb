@@ -1,4 +1,12 @@
-<p id="notice"><%= notice %></p>
 
+<h1>
+  Journey by
+  <%= @journey.negotiator.username %> on <%= @journey.visits.first.arrival %>
+</h1>
+
+<ul>
+  <% @journey.visits.each do |v| %>
+  <li> <%=v.location.latitude %> , <%= v.location.longitude %> arrives <%= v.arrival %></li>
+  <% end %>
 <%= link_to 'Edit', edit_journey_path(@journey) %> |
 <%= link_to 'Back', journeys_path %>

@@ -1,17 +1,19 @@
-<p id="notice"><%= notice %></p>
 
 <h1>Listing Journeys</h1>
 
 <table>
   <thead>
     <tr>
-      <th colspan="3"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @journeys.each do |journey| %>
-      <tr>
+    <tr>
+      <td><%= journey.negotiator.username %></td>
+      <td><%= journey.visits.first.arrival %></td>
+
         <td><%= link_to 'Show', journey %></td>
         <td><%= link_to 'Edit', edit_journey_path(journey) %></td>
         <td><%= link_to 'Destroy', journey, method: :delete, data: { confirm: 'Are you sure?' } %></td>

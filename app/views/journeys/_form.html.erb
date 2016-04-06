@@ -10,12 +10,13 @@
   </ul>
 </div>
 <% end %>
-
+<%=f.collection_select  :negotiator_id, Negotiator.all, :id, :username %>
 <div id="map-data">
 <input type='number' id="initial_latitude" value="51.519992"></input>
 <input type='number' id="initial_longitude" value="-0.098410"></input>
 <input type='number' id="initial_zoom" value="18"></input>
 <%=f.text_field :locations %>
+<%=f.text_field :starts, value: Time.now %>
 </div>
 
 <div class="map-view" id="map">

@@ -27,9 +27,10 @@ class JourneysController < ApplicationController
   # POST /journeys
   def create
     negotiator = Negotiator.find_by_id(journey_params[:negotiator_id])
-    locations = journey_params[:locations]
+
     @journey = Journey.new(negotiator: negotiator, starts: journey_params[:starts])
-    if @journey.save
+    @journey.locations = journey_params[:locations]
+    if @journey.save and @journey.build_visits
       redirect_to @journey, notice: 'Journey was successfully created.'
     else
       render :new

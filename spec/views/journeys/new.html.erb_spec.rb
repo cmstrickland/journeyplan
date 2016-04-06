@@ -9,6 +9,7 @@ RSpec.describe "journeys/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", journeys_path, "post" do
+      expect(rendered).to have_css('select#journey_negotiator_id')
     end
   end
 end

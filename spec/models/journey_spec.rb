@@ -24,4 +24,12 @@ RSpec.describe Journey, type: :model do
     expect{journey.build_visits}.to change { journey.visits.count }.by 5
   end
 
+  it "builds visits with an incrementing timeline" do
+    visits =journey.build_visits.all
+    visits.each_with_index do |v,i|
+      if i+1 < visits.count
+        expect(v.arrival).to be < visits[i+1].arrival
+      end
+    end
+  end
 end

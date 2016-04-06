@@ -7,10 +7,8 @@ class Visit < ActiveRecord::Base
   before_save :ensure_duration_is_set
 
   def build_visit_to (location: nil )
-
     Visit.create!( location: location, journey: self.journey,
-                   arrival: self.leaves_at + journey_time(to:location)
-                 )
+                   arrival: self.leaves_at + journey_time(to:location))
   end
 
   def leaves_at

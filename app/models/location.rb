@@ -10,4 +10,9 @@ class Location < ActiveRecord::Base
     location = Location.find_or_create_by( latitude: BASE_LOCATION[:latitude],
                                            longitude: BASE_LOCATION[:longitude])
   end
+
+  def to_s
+    "#{latitude},#{longitude}"
+  end
+
 end

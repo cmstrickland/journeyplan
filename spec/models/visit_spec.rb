@@ -4,8 +4,6 @@ RSpec.describe Visit, type: :model do
   let(:visit) { Fabricate(:journey).visits[0] }
   it "must have a start time" do
     expect(visit.arrival).to_not be_nil
-    visit.arrival = nil
-    expect(visit).to_not be_valid
   end
 
   it "must have a journey" do
@@ -33,7 +31,7 @@ RSpec.describe Visit, type: :model do
     end
 
     it "computes the arrival to be in the future" do
-      expect(next_visit.arrival).to be > visit.arrival
+      expect(visit_in_future(visit.arrival,next_visit.arrival)).to eq true
     end
 
   end

@@ -55,3 +55,9 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+def visit_in_future (v1,v2)
+  return true if v1.nil?
+  return true if v2.nil?
+  return true if (v1 < v2 )
+end

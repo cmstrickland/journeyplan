@@ -1,5 +1,11 @@
 require 'rails_helper'
 
+def visit_in_future (v1,v2)
+  return true if v1.nil?
+  return true if v2.nil?
+  return true if (v1 < v2 )
+end
+
 RSpec.describe Journey, type: :model do
   let(:journey) { Fabricate.build(:journey) }
 
@@ -28,7 +34,7 @@ RSpec.describe Journey, type: :model do
     visits =journey.build_visits.all
     visits.each_with_index do |v,i|
       if i+1 < visits.count
-        expect(v.arrival).to be < visits[i+1].arrival
+        expect(visit_in_future(v.arrival,visits[i+1].arrival)).to eq true
       end
     end
   end

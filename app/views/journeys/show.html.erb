@@ -1,12 +1,11 @@
 
 <h1>
-  Journey by
+  Journey made by
   <%= @journey.negotiator.username %> on <%= @journey.visits.first.arrival %>
 </h1>
 
-<ul>
+<table class="table">
   <% @journey.visits.each do |v| %>
-  <li> <%=v.location.latitude %> , <%= v.location.longitude %> arrives <%= v.arrival %></li>
+  <tr> <td><%=v.location.latitude %> , <%= v.location.longitude %> </td><td> arrives </td> <td><%= v.arrival %></td> </tr>
   <% end %>
-<%= link_to 'Edit', edit_journey_path(@journey) %> |
-<%= link_to 'Back', journeys_path %>
+<table>

@@ -68,13 +68,6 @@ RSpec.describe JourneysController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
-    it "assigns the requested journey as @journey" do
-      journey = Fabricate(:journey)
-      get :edit, {:id => journey.to_param}, valid_session
-      expect(assigns(:journey)).to eq(journey)
-    end
-  end
 
   describe "POST #create" do
     context "with valid params" do
@@ -106,62 +99,6 @@ RSpec.describe JourneysController, type: :controller do
         post :create, {:journey => invalid_attributes}, valid_session
         expect(response).to render_template("new")
       end
-    end
-  end
-
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        { starts: Faker::Time.forward }
-      }
-
-      it "updates the requested journey" do
-        journey = Fabricate(:journey)
-        put :update, {:id => journey.to_param, :journey => new_attributes }, valid_session
-        journey.reload
-        expect(journey.starts).to eq new_attributes[:starts]
-      end
-
-      it "assigns the requested journey as @journey" do
-        journey = Fabricate(:journey)
-        put :update, {:id => journey.to_param, :journey => valid_attributes}, valid_session
-        expect(assigns(:journey)).to eq(journey)
-      end
-
-      it "redirects to the journey" do
-        journey = Fabricate(:journey)
-        put :update, {:id => journey.to_param, :journey => valid_attributes}, valid_session
-        expect(response).to redirect_to(journey)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the journey as @journey" do
-        journey = Fabricate(:journey)
-        put :update, {:id => journey.to_param, :journey => invalid_attributes}, valid_session
-        expect(assigns(:journey)).to eq(journey)
-      end
-
-      it "re-renders the 'edit' template" do
-        journey = Fabricate(:journey)
-        put :update, {:id => journey.to_param, :journey => invalid_attributes}, valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested journey" do
-      journey = Fabricate(:journey)
-      expect {
-        delete :destroy, {:id => journey.to_param}, valid_session
-      }.to change(Journey, :count).by(-1)
-    end
-
-    it "redirects to the journeys list" do
-      journey = Fabricate(:journey)
-      delete :destroy, {:id => journey.to_param}, valid_session
-      expect(response).to redirect_to(journeys_url)
     end
   end
 

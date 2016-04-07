@@ -1,7 +1,7 @@
 
 <h1>Listing Journeys</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th colspan="4"></th>
@@ -12,16 +12,9 @@
     <% @journeys.each do |journey| %>
     <tr>
       <td><%= journey.negotiator.username %></td>
-      <td><%= journey.visits.first.arrival %></td>
-
-        <td><%= link_to 'Show', journey %></td>
-        <td><%= link_to 'Edit', edit_journey_path(journey) %></td>
-        <td><%= link_to 'Destroy', journey, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <td>on</td>
+      <td><%= link_to journey.visits.first.arrival, journey %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Journey', new_journey_path %>

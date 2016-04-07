@@ -1,8 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Negotiators</h1>
 
-<table>
+<%= link_to "New", new_negotiator_path, class: "btn btn-default", role:"button" %>
+<table class="table">
   <thead>
     <tr>
       <th colspan="3"></th>
@@ -12,15 +11,9 @@
   <tbody>
     <% @negotiators.each do |negotiator| %>
     <tr>
-      <td><%= negotiator.username %></td>
-      <td><%= link_to 'Show', negotiator %></td>
-      <td><%= link_to 'Edit', edit_negotiator_path(negotiator) %></td>
-      <td><%= link_to 'Destroy', negotiator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to negotiator.username, edit_negotiator_path(negotiator) %></td>
+      <td><%= link_to 'Delete', negotiator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Negotiator', new_negotiator_path %>

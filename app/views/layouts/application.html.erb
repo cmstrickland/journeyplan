@@ -1,15 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rentify</title>
+  <title>RentyRoute</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <p id="notice" ><%= notice %></p>
-
-<%= yield %>
-
+  <header class="navbar navbar-fixed-top navbar-inverse">
+    <div class="container">
+      <nav>
+        <ul class="nav navbar-nav navbar-left">
+          <li><%= link_to "Plan a journey", root_url %></li>
+          <li><%= link_to "Negotiators", negotiators_url %></li>
+          <li><%= link_to "Journeys", journeys_url %></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container main-content">
+    <div class="jumbotron">
+    <p id="notice" ><%= notice %></p>
+    <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

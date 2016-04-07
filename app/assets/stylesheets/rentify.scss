@@ -1,0 +1,16 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html,body { height: 100%; }
+.main-content,.main-content .jumbotron,  {height:100%;}
+.jumbotron {
+
+  #user-form-controls .actions { padding-left: 2em; }
+
+  h1{  font-size: 2em; }
+
+  div.actions { display: inline; }
+  div#map-data { display: none; }
+
+
+}

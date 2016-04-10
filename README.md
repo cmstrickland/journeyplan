@@ -17,3 +17,8 @@ once you have this
 
 `rake db:create`
 `rake db:migrate`
+
+The app is built to use foreman so you can run it via `foreman start -f Procfile`
+
+config variables should be set in ``.env``
+there's a skeleton .env.example file provided, but you will need to add API keys to this

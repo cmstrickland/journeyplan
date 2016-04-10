@@ -34,7 +34,7 @@ class Visit < ActiveRecord::Base
     #    request = CityMapperRequest.new(start: from, finish: to, time: time)
     #    response = Net::HTTP.get_response(request.uri)
     fake_cm_response= %Q|{
-      "travel_time_minutes": -1,
+      "travel_time_minutes": #{rand(30)},
           "diagnostic": {
                           "milliseconds": 3502
                         }

@@ -22,3 +22,6 @@ The app is built to use foreman so you can run it via `foreman start -f Procfile
 
 config variables should be set in ``.env``
 there's a skeleton .env.example file provided, but you will need to add API keys to this
+
+
+There is a small test suite built using Rspec + capybara - so once you have installed all the prerequistes you can exercise the unit and feature tests by simply running `rake`

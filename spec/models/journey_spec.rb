@@ -30,6 +30,12 @@ RSpec.describe Journey, type: :model do
     expect{journey.build_visits}.to change { journey.visits.count }.by 5
   end
 
+  it "handles duplicate locations through truncation " do
+    journey.locations = %Q|[{"lat":51.511263842468516,"lng":-0.10557174682617188},
+{"lat":51.53561579082792,"lng":-0.2549171447753906},
+{"lat":51.53561571082792,"lng":-0.254917144}]|
+    expect{journey.build_visits}.to change{ journey.visits.count }.by 4
+  end
   it "builds visits with an incrementing timeline" do
     visits =journey.build_visits.all
     visits.each_with_index do |v,i|

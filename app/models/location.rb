@@ -4,6 +4,7 @@ class Location < ActiveRecord::Base
             uniqueness: { scope: :latitude  }
   has_many :visits
 
+
   BASE_LOCATION = { latitude: 51.51991, longitude: -0.09820 }
 
   def self.london_office
@@ -14,5 +15,6 @@ class Location < ActiveRecord::Base
   def to_s
     "#{latitude},#{longitude}"
   end
+
 
 end

@@ -18,6 +18,7 @@ RSpec.describe Location, type: :model do
     expect(dupe).to_not be_valid
   end
 
+
   it "doesn't have to have a name" do
     location.name = nil
     expect(location).to be_valid

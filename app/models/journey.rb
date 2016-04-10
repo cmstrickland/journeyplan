@@ -12,11 +12,17 @@ class Journey < ActiveRecord::Base
   def build_visits
     location_set = JSON.parse(self.locations)
     visit = self.visits.last
-    location_set.each do |l|
-      location = Location.find_or_create_by( latitude: l["lat"],
-                                             longitude: l["lng"] )
-
-      visit = visit.build_visit_to(location: location)
+    self.transaction do
+      location_set.each do |l|
+        lat = Float(l["lat"]).round(6)
+        lng = Float(l["lng"]).round(6)
+        location = Location.find_or_create_by( latitude: lat,
+                                               longitude: lng )
+        if location.id == nil
+          raise "Location #{l} failed #{location}.errors"
+        end
+        visit = visit.build_visit_to(location: location)
+      end
     end
     self.visits
   end

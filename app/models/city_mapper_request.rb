@@ -21,7 +21,7 @@ class CityMapperRequest
   end
 
   def api_key
-    "c4a70ee449681134543ad73c6ca500b9"
+    ENV['CITYMAPPER_API_KEY']
   end
 
 end

@@ -22,4 +22,6 @@ end
 
 group :development do
   gem 'ripper-tags'
+  gem 'dotenv'
+  gem 'foreman'
 end
